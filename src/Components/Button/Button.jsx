@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Button = ({ keyIndex, onClick, children }) => {
-  if (keyIndex === "0-2") {
+  if (children === "leftArrow") {
     return (
       <button className={`button button-${keyIndex}`} onClick={onClick}>
         &larr;

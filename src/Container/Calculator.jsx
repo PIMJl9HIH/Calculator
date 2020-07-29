@@ -5,19 +5,28 @@ import Output from "../Components/Output";
 
 import { ThemeContext } from "../helpers/Context";
 
-function clicker() {
-  console.log("fffffffffffff");
-}
-
 export const Calculator = () => {
-  // const [state, setState] = useState(0);
-  // const [prevValue, setPrevValue] = useState("");
-  // const [nextValue, setNextValue] = useState("");
+  const [prevValue, setPrevValue] = useState("");
+  const [curValue, setCurValue] = useState("");
+  const [operation, setOperation] = useState("");
+
+  const contextScheme = {
+    prevValue,
+    setPrevValue,
+    curValue,
+    setCurValue,
+    operation,
+    setOperation,
+  };
 
   return (
-    <ThemeContext.Provider value={{ test: clicker }}>
+    <ThemeContext.Provider value={contextScheme}>
       <div className="calculator">
-        <Output />
+        <Output
+          prevValue={prevValue}
+          curValue={curValue}
+          operation={operation}
+        />
         <CalcBody />
       </div>
     </ThemeContext.Provider>
