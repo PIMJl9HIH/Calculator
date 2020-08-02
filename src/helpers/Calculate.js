@@ -28,15 +28,12 @@ function chooseOperation(
   if (curValue === "") return false;
 
   if (!operation) {
-    console.log("net operacii");
     setOperation(item);
     setPrevValue(curValue);
     setCurValue("");
   }
 
   if (operation) {
-    console.log("rewaiiiiii");
-
     compute(
       item,
       operation,
@@ -51,14 +48,9 @@ function chooseOperation(
     setCurValue("");
   }
 
-  if (prevValue !== "") {
-  }
-
   if (!prevValue) {
     setPrevValue(curValue);
   }
-  // setCurValue("");
-  // setOperation("");
 }
 
 function compute(
@@ -78,22 +70,18 @@ function compute(
     case "+":
       setOperation("+");
       computation = prev + cur;
-      // setPrevValue(prev + cur);
       break;
     case "-":
       setOperation("-");
       computation = prev - cur;
-      // setPrevValue(prev - cur);
       break;
     case "*":
       setOperation("*");
       computation = prev * cur;
-      // setPrevValue(prev * cur);
       break;
     case "/":
       setOperation("/");
       computation = prev / cur;
-      // setPrevValue(prev / cur);
       break;
     default:
       return;
