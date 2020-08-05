@@ -1,30 +1,40 @@
-function clear(setCurValue, setPrevValue, setOperation) {
+type stringFuncParam = (a: string) => string;
+function clear(
+  setCurValue: stringFuncParam,
+  setPrevValue: stringFuncParam,
+  setOperation: stringFuncParam
+) {
   setPrevValue("");
   setCurValue("");
   setOperation("");
 }
 
-function deleteLastSymbol(curValue, setNumber) {
+function deleteLastSymbol(curValue: string | number, setNumber: any) {
   return setNumber(curValue.toString().slice(0, -1));
 }
 
-function getNumber(item, curValue, setNumber, e) {
+function getNumber(
+  item: any,
+  curValue: any,
+  setNumber: any,
+  e: React.MouseEvent<HTMLButtonElement>
+) {
   if (item === "." && curValue.includes(".")) return;
-  const number = e.target.textContent;
-  const result = curValue.toString() + number.toString();
+  const number = (e.target as HTMLButtonElement).textContent;
+  const result = curValue.toString() + number!.toString();
 
   setNumber(result);
 }
 
 function chooseOperation(
-  item,
-  operation,
-  setOperation,
-  prevValue,
-  setPrevValue,
-  curValue,
-  setCurValue
-) {
+  item: string | number,
+  operation: any,
+  setOperation: any,
+  prevValue: any,
+  setPrevValue: any,
+  curValue: any,
+  setCurValue: any
+): any {
   if (curValue === "") return false;
 
   if (!operation) {
@@ -54,13 +64,13 @@ function chooseOperation(
 }
 
 function compute(
-  item,
-  operation,
-  setOperation,
-  prevValue,
-  setPrevValue,
-  curValue,
-  setCurValue
+  item: string | number,
+  operation: any,
+  setOperation: any,
+  prevValue: any,
+  setPrevValue: any,
+  curValue: any,
+  setCurValue: any
 ) {
   let computation;
   let prev = parseFloat(prevValue);

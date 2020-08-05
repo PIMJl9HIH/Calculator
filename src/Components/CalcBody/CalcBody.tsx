@@ -22,8 +22,14 @@ const arrBody = [
   [".", 0, "", "="],
 ];
 
-const renderButton = (arr, index, actionCompute) => {
-  return arr.map((deepItem, deepIndex) => {
+type arrItemType = number | string;
+
+const renderButton = (
+  arr: Array<arrItemType>,
+  index: number,
+  actionCompute: any
+) => {
+  return arr.map((deepItem: arrItemType, deepIndex: number) => {
     const uniqueKey = `${index}-${deepIndex}`;
     if (!deepItem && deepItem !== 0) return false;
 
@@ -31,7 +37,9 @@ const renderButton = (arr, index, actionCompute) => {
       <Button
         key={uniqueKey}
         keyIndex={uniqueKey}
-        onClick={(e) => actionCompute(deepItem, e)}
+        onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+          actionCompute(deepItem, e)
+        }
       >
         {deepItem || deepItem === 0 ? deepItem : ""}
       </Button>
@@ -40,6 +48,18 @@ const renderButton = (arr, index, actionCompute) => {
 };
 
 export const CalcBody = () => {
+  type stringOrNumber = string | number;
+  type voidFunc = () => void;
+
+  type contextVariableType = {
+    prevValue: stringOrNumber;
+    setPrevValue: any;
+    curValue: stringOrNumber;
+    setCurValue: any;
+    operation: string;
+    setOperation: any;
+  };
+
   const {
     prevValue,
     setPrevValue,
@@ -47,9 +67,9 @@ export const CalcBody = () => {
     setCurValue,
     operation,
     setOperation,
-  } = useContext(ThemeContext);
+  } = useContext<contextVariableType>(ThemeContext);
 
-  function action(item, e) {
+  function action(item: any, e: React.MouseEvent<HTMLButtonElement>) {
     if (parseInt(item) || parseInt(item) === 0 || item === ".")
       return getNumber(item, curValue, setCurValue, e);
     if (item === deleteArrow) return deleteLastSymbol(curValue, setCurValue);
