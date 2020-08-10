@@ -1,6 +1,16 @@
 import React from "react";
 
-export const Output = ({ prevValue, curValue, operation }) => {
+type outputType = {
+  prevValue: string;
+  curValue: string;
+  operation: string;
+};
+
+export const Output: React.FC<outputType> = ({
+  prevValue,
+  curValue,
+  operation,
+}) => {
   return (
     <div className="output">
       <div className="output-prev">
