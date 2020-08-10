@@ -28,11 +28,11 @@ function getNumber(
 
 function chooseOperation(
   item: string | number,
-  operation: any,
+  operation: string,
   setOperation: any,
-  prevValue: any,
+  prevValue: string,
   setPrevValue: any,
-  curValue: any,
+  curValue: string,
   setCurValue: any
 ): any {
   if (curValue === "") return false;
@@ -65,11 +65,11 @@ function chooseOperation(
 
 function compute(
   item: string | number,
-  operation: any,
+  operation: string,
   setOperation: any,
-  prevValue: any,
+  prevValue: string,
   setPrevValue: any,
-  curValue: any,
+  curValue: string,
   setCurValue: any
 ) {
   let computation;

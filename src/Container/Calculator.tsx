@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-import CalcBody from "../Components/CalcBody";
+import RenderBody from "../Components/renderBody";
 import Output from "../Components/Output";
 
 import { ThemeContext } from "../helpers/Context";
 
+type stringType = string;
+
 export const Calculator = () => {
-  const [prevValue, setPrevValue] = useState("");
-  const [curValue, setCurValue] = useState("");
-  const [operation, setOperation] = useState("");
+  const [prevValue, setPrevValue] = useState<stringType>("");
+  const [curValue, setCurValue] = useState<stringType>("");
+  const [operation, setOperation] = useState<stringType>("");
 
   const contextScheme = {
     prevValue,
@@ -27,7 +29,7 @@ export const Calculator = () => {
           curValue={curValue}
           operation={operation}
         />
-        <CalcBody />
+        <RenderBody />
       </div>
     </ThemeContext.Provider>
   );
